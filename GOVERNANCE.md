@@ -1,0 +1,166 @@
+# ComplyTime Governance
+
+The following document outlines how the ComplyTime project governance operates.
+
+## Principles
+
+The ComplyTime community adheres to the following principles:
+
+**Open**: ComplyTime is open source. See project guidelines [here](./CONTRIBUTING.md).  
+**Welcoming and respectful**: See [Code of Conduct](./CODE_OF_CONDUCT.md).  
+**Transparent and accessible**: Work and collaboration should be done in public.  
+**Merit**: Ideas and contributions are accepted according to their technical merit and alignment with project objectives, scope, and design principles.  
+
+## Governance Structure Overview
+
+The ComplyTime Project has a two-level governance structure with a Technical Oversight Committee (TOC) and Project Maintainers.
+
+Except where otherwise noted, decisions should always start at the most local level of project governance. If a decision only affects a single project, the discussion should start with the project maintainers. While communication between the different project teams is important as they are all interconnected, minor decisions do not need organization-wide consensus and can be moved forward at the project level.
+
+### Project Maintainers overview
+
+Project Maintainers focus on a single codebase or a group of related codebases. They are responsible for activities surrounding the development and release of code, the operation of any services that they own, or the tasks needed to execute their project. Technical decisions for code reside with the project Maintainers unless there is a decision related to multiple maintainer groups that cannot be resolved by those groups. Those cases can be escalated to the TOC.
+
+To be considered an _active project Maintainer_, it is required to be associated with at least one active, non-archived project. If only listed on archived projects, they become _emeritus Maintainers_ and are no longer eligible to become an organization Maintainer.
+
+More information about the Maintainer role can be found in the [Membership](./MEMBERSHIP.md) document. The list of current maintainers for each project can be found in the `MAINTAINERS.md` at the repository level.
+
+### ComplyTime TOC Overview
+
+The TOC functions as the organization Maintainers.
+
+An initial TOC was appointed by the founding sponsors of the ComplyTime project. This bootstrap committee will serve until the first election of the TOC using processes and timing as determined by this group. Current TOC members are defined in the community [MAINTAINERS.md](./MAINTAINERS.md) file.
+
+The TOC consists of 3 to 5 leaders on the ComplyTime project. These members will serve to supervise the overall project and its health.
+
+The TOC is responsible for the following duties:
+
+* Maintaining the mission, vision, values, and scope of the project
+* Refining the governance and charter as needed
+* Making project-level decisions, including setting technical policies that apply across all components
+* Resolving escalated project decisions when the team responsible is blocked
+* Managing the ComplyTime brand
+* Controlling access to ComplyTime assets such as source repositories and hosting
+* Deciding what projects are part of the ComplyTime project
+* Overseeing the resolution and disclosure of security issues
+* Managing financial decisions related to the project
+
+#### Active Member Status
+
+To be considered an _active_ TOC member, individuals are expected to be consistently engaged in the duties of the committee. Active participation includes, but is not limited to:
+
+* Regularly attending TOC meetings.
+* Actively participating in committee discussions and voting on proposals.
+* Helping to maintain the mission, vision, and scope of the project.
+* Mentoring other contributors and helping to grow the community.
+
+The process for moving an inactive member to **Emeritus** status is as follows:
+
+* Grace Period: If a member is unable to maintain active participation for a consecutive period of **3 months**, a Committee Chair will reach out privately to check in with them.
+* Vote: If the member remains inactive or cannot be reached, a vote may be called. This requires a simple majority vote from the other active members.
+* Offboarding: If the vote passes, a pull request will be opened to remove the individual from the `MAINTAINERS.md` file. Following the merge of the pull request, their privileged access to resources will be revoked. They will be considered **Emeritus TOC Members** and are welcome to become active again by following the standard nomination process.
+* In such cases, the vacancy will be filled according to the procedures outlined in this document.
+
+#### TOC Chairs
+
+The TOC will also consists of a two selected Chair members who will share committee facilitation responsibilities and call meetings. These meetings will be held publicly, except in special circumstances. The TOC may hold private meetings to discuss sensitive topics, such as security vulnerabilities or Code of Conduct violations.
+
+The Chairs are expected to perform a variety of functions to support TOC activities:
+
+- Support onboarding new committee members as needed
+- Gathering agenda items for meetings
+- Scheduling and facilitating TOC meetings
+- Extending discussion via asynchronous communication to be inclusive of members who cannot attend a specific meeting time
+- Facilitating the creation and execution of TOC activities
+
+#### TOC Succession Procedures
+
+The ComplyTime project will hold yearly elections to vote for new members of the TOC.
+
+##### Election Process
+
+The election process is as follows:
+
+1. **Voter Eligibility**: All active community Members, Reviewers, and Maintainers (as defined in `MEMBERSHIP.md`) at the time of the election are eligible to vote.
+2. **Call for Nominations**: Two months before the election, a call for nominations will be sent out to the ComplyTime community.
+3. **Nomination Period**: Community members will have one month to nominate candidates for the TOC. Self-nominations are permitted.
+4. **Candidate Statements**: Each candidate will be asked to provide a statement of interest and qualifications.
+5. **Vetting**: There is usually a process for the existing committee or another body to review the nominations and confirm that the candidates meet the eligibility criteria.
+6. **Voting Period**: A two-week voting period will be held.
+7. **Results**: The results of the election will be announced within one week of the close of voting.
+8. **Tie-Breaking**: In the event of a tie for a seat on the TOC, the winner will be determined using the Schulze method of ranked-choice voting.
+
+##### Candidate Eligibility
+
+Key Eligibility Requirements:
+
+* Technical Expertise: Candidates should be senior, respected technical contributors with significant experience relevant to the project's domain.
+* Demonstrated Commitment: They must have the time and willingness to actively participate in meetings, discussions, and the work of the committee.
+* Neutrality and Project-First Mindset: A crucial requirement is the ability to act as a neutral party, prioritizing the good of the project over any personal or company interests.
+* Good Standing: Candidates should have a clean record with respect to the project's Code of Conduct. The CNCF, for example, requires that candidates for its Code of Conduct Committee have no violations in the past 18 months.
+
+##### Term Length
+
+Members of the TOC will serve a one-year term.
+
+##### Company Affiliation
+
+To ensure diversity, no more than two members employed by the same company may serve on the TOC simultaneously. If the results of an election would cause this limit to be exceeded, the candidate(s) from the over-represented company with the lowest vote counts will be disqualified, and the seat(s) will be filled by the next highest-voted candidates who do not violate the company representation limit.
+
+##### Vacancies
+
+If a seat on the TOC becomes vacant, the committee may appoint a replacement to serve until the next election.
+
+## Decision Making Process
+
+Generally, there are two methods for decision making for the ComplyTime project: by consensus or by explicit voting.
+
+### Consensus
+
+Many of the day-to-day project maintenance can be done through the lazy consensus model. This means that any decision is considered supported by the team making it so long as no one objects. Silence on any consensus decision is implicit agreement, and equivalent to explicit agreement. Please note that decisions that warrant wider input should be made public by using the defined [proposal process](./proposals/README.md).
+
+In the event that consensus cannot be reached, a Maintainer can call for a vote on a decision.
+
+### Explicit Voting
+
+The secondary decision-making process is done by explicit voting. In any vote, a tie is considered a failure to achieve the required majority and the motion does not pass.
+
+#### Process
+
+We use the [GitVote](https://github.com/cncf/gitvote) bot to streamline our voting efforts.
+
+- Organization-level voting must take place in the community (this repository) repository.
+- Only GitHub Issues and Pull Requests are supported.
+
+The GitVote [repository](https://github.com/cncf/gitvote/blob/main/README.md) has additional information on usage.
+
+There are some constant configurations between voting profiles:
+
+- The TOC members have binding votes in the community repository. All in the community can and are encouraged to participate in the vote, even if their vote is not binding.
+- The duration for voting is four weeks with status checks occurring at the two week mark.
+
+##### Simple Majority Vote
+
+If a vote is called, the default is a simple majority vote - more than half of the appropriate deciding body. This is the default profile used when calling a vote with `/vote`
+
+##### Supermajority Vote
+
+In some cases, a supermajority vote is required for decision making - at least two-thirds of the appropriate deciding body. You can use `/vote-super` to initiate this type of vote.
+
+Some examples include:
+
+* Carrying out [Code of Conduct](./CODE_OF_CONDUCT.md) decisions requiring severe censure (supermajority of the TOC)
+* Removing a [Maintainer](./MAINTAINERS.md) for any reason other than inactivity (supermajority of the TOC)
+* Non-trivial changes to the governance (this document) (supermajority of the TOC)
+* Licensing and intellectual property changes such as new logos or wordmarks (majority of the TOC)
+* Adding, archiving, or removing projects (majority of the TOC)
+
+## Modifications to this Governance
+
+This governance may be modified by a supermajority vote of the TOC.
+
+Trivial changes that do not introduce policy changes may be approved by two members of the TOC.
+
+## Acknowledgements
+
+Sections of this document were adapted from [InstructLab](https://github.com/instructlab/community/blob/main/GOVERNANCE.md) and [CoreDNS](https://github.com/coredns/coredns/blob/master/GOVERNANCE.md) projects.
