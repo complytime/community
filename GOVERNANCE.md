@@ -8,8 +8,11 @@ The ComplyTime community adheres to the following principles:
 
 **Open**: ComplyTime is open source. See project guidelines [here](./CONTRIBUTING.md).  
 **Welcoming and respectful**: See [Code of Conduct](./CODE_OF_CONDUCT.md).  
-**Transparent and accessible**: Work and collaboration should be done in public.  
+**Transparent and accessible**: The project attempts to conduct decision making in the open, transparently, and in an observable manner except where sensitive topics may be discussed, such as those directly impacting humans of the project and community. Work and collaboration should be done in public.  
 **Merit**: Ideas and contributions are accepted according to their technical merit and alignment with project objectives, scope, and design principles.  
+
+## Initial Governance Phase
+This governance is written to be the ideal state for the ComplyTime community. The project is actively seeking affiliations to adhere to our contributor ladder and achieve the level of qualification to join the TOC. Until which time, the TOC will be made up of members from a single company. The company affiliation rules will be strictly enforced as soon as the first nomination from a different company is received.
 
 ## Governance Structure Overview
 
@@ -75,7 +78,7 @@ The Chairs are expected to perform a variety of functions to support TOC activit
 
 #### TOC Succession Procedures
 
-The ComplyTime project will hold yearly elections to vote for new members of the TOC.
+The ComplyTime project will hold yearly elections to vote for new members of the TOC. To ensure continuity, the TOC member terms are staggered.
 
 ##### Election Process
 
@@ -101,11 +104,11 @@ Key Eligibility Requirements:
 
 ##### Term Length
 
-Members of the TOC will serve a one-year term.
+Members of the TOC will serve a two-year term. To bootstrap the process, in the first election, the top-voted half of the candidates will serve a two-year term, and the remaining candidates will serve a one-year term.
 
 ##### Company Affiliation
 
-To ensure diversity, no more than two members employed by the same company may serve on the TOC simultaneously. If the results of an election would cause this limit to be exceeded, the candidate(s) from the over-represented company with the lowest vote counts will be disqualified, and the seat(s) will be filled by the next highest-voted candidates who do not violate the company representation limit.
+No single company or organization should be allowed more than 40% of the TOC seats. If an election would result in a single company having more than 40% of the seats, the candidate(s) from that company with the lowest vote counts will be disqualified, and the seat(s) will be filled by the next highest-voted candidates who do not violate this limit. Affiliations must be publicly stated.
 
 ##### Vacancies
 
@@ -117,7 +120,7 @@ Generally, there are two methods for decision making for the ComplyTime project:
 
 ### Consensus
 
-Many of the day-to-day project maintenance can be done through the lazy consensus model. This means that any decision is considered supported by the team making it so long as no one objects. Silence on any consensus decision is implicit agreement, and equivalent to explicit agreement. Please note that decisions that warrant wider input should be made public by using the defined [proposal process](./proposals/README.md).
+Many of the day-to-day project maintenance can be done through the lazy consensus model. This means that any decision is considered supported by the team making it so long as no one objects. Silence on any consensus decision is implicit agreement, and equivalent to explicit agreement. Please note that all decisions that warrant wider input must be made public by using the defined [proposal process](./proposals/README.md).
 
 In the event that consensus cannot be reached, a Maintainer can call for a vote on a decision.
 
@@ -163,4 +166,4 @@ Trivial changes that do not introduce policy changes may be approved by two memb
 
 ## Acknowledgements
 
-Sections of this document were adapted from [InstructLab](https://github.com/instructlab/community/blob/main/GOVERNANCE.md) and [CoreDNS](https://github.com/coredns/coredns/blob/master/GOVERNANCE.md) projects.
+Sections of this document were adapted from [InstructLab](https://github.com/instructlab/community/blob/main/GOVERNANCE.md), [CoreDNS](https://github.com/coredns/coredns/blob/master/GOVERNANCE.md), and [Falco](https://github.com/falcosecurity/evolution/blob/main/GOVERNANCE.md) projects.
