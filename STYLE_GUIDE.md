@@ -30,7 +30,7 @@ These principles guide *how* we think about problems and *why* we make specific 
 ### Core Value: Readability
 
 **1. Code is Written for Humans First**
-* **Principle:** Code is read 10x more often than it is written. Optimizing for the reader (your future self or a teammate) is more important than optimizing for the writer's speed.
+* **Principle:** [Code is read 10x more often than it is written](https://www.goodreads.com/quotes/835238-indeed-the-ratio-of-time-spent-reading-versus-writing-is). Optimizing for the reader (your future self or a teammate) is more important than optimizing for the writer's speed.
 * **Implementation:**
     * **Explicit Naming:** Variable and function names should clearly describe their intent (e.g., use `days_until_expiration` instead of `d`).
     * **Avoid "Clever" Code:** Avoid complex one-liners or obscure language features that require deep mental parsing. If the implementation is hard to explain, it is a bad implementation.
