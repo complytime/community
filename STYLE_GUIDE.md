@@ -87,11 +87,12 @@ Every repository under the ComplyTime organization must contain the following st
     * **CI/CD Gates:**
       * **Standard:** All PRs must generally pass automated checks (linting, testing, build) before merging.
       * **Exceptions:** We recognize that checks may occasionally fail due to external issues outside our control or transient flakes that pass locally. In these rare instances, **maintainers can discuss and agree on exceptions** to merge specific PRs despite a red status.
+    * **Pull Request Title Format**
+      * **Format:** `<type>: <description>`
+      * **Example:** `feat: implement oscal validation logic`
 
 * **Commit Messages:**
     * Follow the **Conventional Commits** [specification](https://www.conventionalcommits.org/).
-    * **Format:** `<type>: <description>`
-    * **Example:** `feat: implement oscal validation logic`
 
 ---
 
@@ -104,7 +105,8 @@ We should centralize workflows, configurations, and templates as much as possibl
 ### Guidelines for all programming language
 
 - **Empty Line at End of File**: Ensure that all files include an empty line at the end. This helps with version control diffs and adheres to POSIX standards.
-- The pre-commit and pre-push hooks can be configured by installing [pre-commit](https://pre-commit.com/) and running code repo specific make commands.
+- The pre-commit and pre-push hooks can be configured by installing [pre-commit](https://pre-commit.com/) and running code repo specific `make` commands.
+- **Testing**: Write tests for your code. Use descriptive names for test functions and include edge cases.
 
 ### Go (e.g., `complyctl`)
 
@@ -113,7 +115,6 @@ We should centralize workflows, configurations, and templates as much as possibl
 - **File Naming**: Use lowercase letters and underscores for file names (e.g., `my_file.go`).
 - **Package Names**: Use short, concise, and lowercase names for packages. Avoid underscores and mixed caps.
 - **Error Handling**: Always check for errors and handle them appropriately. Return errors to the caller when necessary.
-- **Testing**: Write tests for your code. Use descriptive names for test functions and include edge cases.
 - **Line Length**: Limit lines to 99 characters when reasonable to improve readability.
 
 #### Licensing and File Headers
@@ -138,7 +139,6 @@ We should centralize workflows, configurations, and templates as much as possibl
 
 #### General Guidelines
 
-- **Testing**: Write tests for your code. Use descriptive names for test functions and include edge cases.
 - **Line Length**: Limit lines to 99 characters when reasonable to improve readability.
 - **Type Hinting:** Use Python type hints to improve readability and tooling support.
 
