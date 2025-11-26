@@ -25,7 +25,7 @@ These principles guide *how* we think about problems and *why* we make specific 
 
 **3. Incremental Improvement**
 * **Principle:** We encourage contributors to improve the code they interact with, while ensuring individual contributions remain focused.
-* **Implementation:** If you identify areas for improvement (such as refactoring, formatting fixes, or better naming) while working on a specific bug or feature, **consider opening a separate Pull Request or an Issue on GitHub** for those changes. Keeping improvements separate from logic fixes ensures that your original PR remains atomic and easier for maintainers to review.
+* **Implementation:** If you identify areas for improvement (such as refactoring, formatting fixes, or better naming) while working on a specific bug or feature, **consider opening a separate Pull Request or an Issue on GitHub** for those changes. While improvements are always welcome, keeping aesthetic changes separate from logic fixes ensures that your original PR remains atomic and easier for maintainers to review.
 
 ### Core Value: Readability
 
@@ -96,7 +96,7 @@ Every repository under the ComplyTime organization must contain the following st
 
 ---
 
-## 4. Centrally manages configuration files, templates, and standardized CI/CD workflows
+## 4. Infrastructure Standards Centralization
 
 We should centralize workflows, configurations, and templates as much as possible. Refer to [org-infra](https://github.com/complytime/org-infra).
 
@@ -105,8 +105,10 @@ We should centralize workflows, configurations, and templates as much as possibl
 ### Guidelines for all programming language
 
 - **Empty Line at End of File**: Ensure that all files include an empty line at the end. This helps with version control diffs and adheres to POSIX standards.
-- The pre-commit and pre-push hooks can be configured by installing [pre-commit](https://pre-commit.com/) and running code repo specific `make` commands.
+- The pre-commit and pre-push hooks can be configured by installing [pre-commit](https://pre-commit.com/).
+- Use Makefile to centralize code specific commands.
 - **Testing**: Write tests for your code. Use descriptive names for test functions and include edge cases.
+- **Line Length**: Limit lines to 99 characters unless in exceptional cases where it is reasonable to improve readability.
 
 ### Go (e.g., `complyctl`)
 
@@ -115,7 +117,6 @@ We should centralize workflows, configurations, and templates as much as possibl
 - **File Naming**: Use lowercase letters and underscores for file names (e.g., `my_file.go`).
 - **Package Names**: Use short, concise, and lowercase names for packages. Avoid underscores and mixed caps.
 - **Error Handling**: Always check for errors and handle them appropriately. Return errors to the caller when necessary.
-- **Line Length**: Limit lines to 99 characters when reasonable to improve readability.
 
 #### Licensing and File Headers
 
@@ -125,21 +126,16 @@ We should centralize workflows, configurations, and templates as much as possibl
 
 #### Code Formatting
 
-- **Imports**: Use [`goimports`](https://pkg.go.dev/golang.org/x/tools/cmd/goimports) to format and organize imports. Separate standard library, third-party, and project-specific imports with blank lines. Also ensure only necessary imports.
-- **Indentation and Spacing**: Use the [`go fmt`](https://go.dev/blog/gofmt) tool to automatically format your code. This ensures consistent indentation with tabs and proper spacing after commas, colons, and semicolons.
-- **Braces**: Place opening braces on the same line as the statement (e.g., `if`, `for`, `func`).
+- Formatting should be aligned with native go format tools, [`goimports`](https://pkg.go.dev/golang.org/x/tools/cmd/goimports) and [`go fmt`](https://go.dev/blog/gofmt).
 
 #### Additional Guidelines
 
 - Other [Go checks](https://github.com/complytime/complyctl/blob/main/.golangci.yml) are present in CI/CD, and therefore it may be useful to also run them locally before submitting a PR.
-- Complyctl leverages the [charmbracelet/log](https://github.com/charmbracelet/log) library for logging all command and plugin activity. By default, this output is printed to stdout.
-
 
 ### Python (e.g., `complyscribe`)
 
 #### General Guidelines
 
-- **Line Length**: Limit lines to 99 characters when reasonable to improve readability.
 - **Type Hinting:** Use Python type hints to improve readability and tooling support.
 
 #### Licensing and File Headers
