@@ -4,7 +4,7 @@ Welcome to the ComplyTime community! This repository contains all of the communi
 
 ## Getting Started
 
-We are an open and welcoming community. To get started, please read our [**Contributor's Guide**](./CONTRIBUTING.md) and our [**Code of Conduct**](./CODE_OF_CONDUCT.md).
+We are an open and welcoming community. To get started, please read our [**Contributor's Guide**](./CONTRIBUTING.md), [**Code of Conduct**](./CODE_OF_CONDUCT.md) and [**Style Guide**](./STYLE_GUIDE.md).
 
 ## Governance
 
