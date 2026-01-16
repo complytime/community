@@ -11,7 +11,7 @@ Subprojects follow a defined lifecycle to ensure quality and community alignment
 | **🟢 Active** | Production-ready, actively maintained with regular releases |
 | **🟡 Incubating** | Under active development, working toward stability |
 | **🔵 Supporting** | Foundational/utility project, stable but lower release cadence |
-| **⚪ Archived** | No longer actively maintained, kept for historical reference |
+| **⚪ Archived Or Empty** | Empty or No longer actively maintained, kept for historical reference |
 
 ---
 
@@ -19,36 +19,9 @@ Subprojects follow a defined lifecycle to ensure quality and community alignment
 
 These are the primary user-facing tools that form the backbone of the ComplyTime ecosystem.
 
-### `complytime`
-
-> **A command-line tool for streamlining end-to-end compliance workflows on local systems.**
-
-| | |
-|---|---|
-| **Repository** | [github.com/complytime/complytime](https://github.com/complytime/complytime) |
-| **Status** | 🟢 Active |
-| **Language** | Go |
-| **License** | Apache-2.0 |
-
-The `complytime` CLI is the primary interface for users to interact with the ComplyTime platform. It orchestrates compliance validation, policy assessment, and reporting workflows.
-
-**Key Features:**
-- Compliance validation against OSCAL-based policies
-- Integration with policy engines and evidence collectors
-- Local and CI/CD workflow support
-
-**Related Repositories:**
-
-| Repository | Purpose |
-|------------|---------|
-| [compliance-to-policy-plugins](https://github.com/complytime/compliance-to-policy-plugins) | Plugin extensions for `complytime` |
-| [complytime-policies](https://github.com/complytime/complytime-policies) | Engineering policies expressed in Gemara |
-
----
-
 ### `complyctl`
 
-> **A command-line tool for streamlining end-to-end compliance workflows on local systems.**
+> **Leverages OSCAL to perform compliance assessment activities, using plugins for each stage of the lifecycle.**
 
 | | |
 |---|---|
@@ -56,60 +29,81 @@ The `complytime` CLI is the primary interface for users to interact with the Com
 | **Status** | 🟢 Active |
 | **Language** | Go |
 | **License** | Apache-2.0 |
+| **Badges** | [OpenSSF Best Practices](https://www.bestpractices.dev/projects/9761), [OpenSSF Scorecard](https://scorecard.dev/viewer/?uri=github.com/complytime/complyctl), [SonarCloud](https://sonarcloud.io/summary/new_code?id=rh-psce_complyctl) |
 
-A complementary CLI tool that provides additional compliance workflow capabilities.
+The `complyctl` CLI is the primary interface for compliance assessment using OSCAL and a plugin architecture.
+
+**Commands:**
+- `list` — Show available frameworks
+- `info <framework-id>` — Display framework/control/rule/parameter details
+- `plan <framework-id>` — Create OSCAL Assessment Plan (supports `--scope-config` customization)
+- `generate` — Generate plugin-specific policy artifacts
+- `scan` — Execute PVP plugins, create Assessment Results (`--with-md` for Markdown)
+
+📖 [Installation](https://github.com/complytime/complyctl/blob/main/docs/INSTALLATION.md) | [Quick Start](https://github.com/complytime/complyctl/blob/main/docs/QUICK_START.md) | [Plugin Guide](https://github.com/complytime/complyctl/blob/main/docs/PLUGIN_GUIDE.md)
 
 ---
 
-### `complytime-collector-components`
+### `complytime-collector-components` (ComplyBeacon)
 
-> **A policy-driven observability toolkit for compliance evidence collection.**
+> **An open-source observability toolkit designed to collect, normalize, and enrich compliance evidence, extending the OpenTelemetry (OTEL) standard.**
 
 | | |
 |---|---|
 | **Repository** | [github.com/complytime/complytime-collector-components](https://github.com/complytime/complytime-collector-components) |
-| **Status** | 🟢 Active |
+| **Status** | 🟡 Incubating |
 | **Language** | Go |
 | **License** | Apache-2.0 |
 
-Provides policy-driven observability capabilities, enabling continuous evidence collection and compliance posture monitoring.
+⚠️ All components are under initial development and are **not** ready for production use.
 
-**Key Features:**
-- Real-time file and system observability
-- Evidence collection for compliance audits
-- Status reporting and alerting
+ComplyBeacon bridges the gap between raw policy scanner output and modern logging pipelines, providing a unified, enriched, and auditable data stream for security and compliance analysis.
+
+**Components:**
+- **ProofWatch** — Instrumentation library that emits pre-normalized compliance evidence as OpenTelemetry log streams
+- **Beacon** — Custom OpenTelemetry Collector distribution that receives log records from ProofWatch
+- **TruthBeam** — Custom OpenTelemetry Collector processor that enriches log records with compliance and risk data
+- **Compass** — Central enrichment service providing risk, threat, and compliance framework attributes
 
 **Related Repositories:**
 
 | Repository | Purpose |
 |------------|---------|
-| [complytime-collector-distro](https://github.com/complytime/complytime-collector-distro) | Distribution packages for collector releases |
+| [complytime-collector-distro](https://github.com/complytime/complytime-collector-distro) | Distribution packages for Beacon collector releases |
 
 ---
 
 ### `complyscribe`
 
-> **A workflow automation tool for compliance content authoring.**
+> **A CLI tool that assists users in leveraging Compliance-Trestle in CI/CD workflows for OSCAL formatted compliance content management.**
 
 | | |
 |---|---|
 | **Repository** | [github.com/complytime/complyscribe](https://github.com/complytime/complyscribe) |
-| **Status** | 🟢 Active |
+| **Status** | 🟡 Incubating |
 | **Language** | Go |
 | **License** | Apache-2.0 |
 
-Complyscribe streamlines the creation and maintenance of compliance documentation, enabling workflow automation for compliance content authoring.
+⚠️ Currently under initial development. APIs may change incompatibly from one commit to another.
 
-**Key Features:**
-- Compliance content authoring workflows
-- Document generation and management
-- Integration with GRC standards
+ComplyScribe integrates with [Compliance-Trestle](https://github.com/oscal-compass/compliance-trestle) to manage OSCAL content in CI/CD pipelines.
+
+**Available Commands:**
+- `autosync` — Sync trestle-generated Markdown to OSCAL JSON
+- `rules-transform` — Transform rules YAML to OSCAL Component Definition
+- `create compdef` — Create new OSCAL Component Definition
+- `create ssp` — Create new OSCAL System Security Plan
+- `sync-upstreams` — Sync upstream OSCAL content from git repos
+- `sync-cac-content` — Transform CaC content to OSCAL models
+- `sync-oscal-content` — Sync OSCAL models to CaC content
+
+Also available as GitHub Actions. Supports GitHub and GitLab CI.
 
 ---
 
 ### `gemara-mcp-server`
 
-> **An MCP server for automating the authoring of GRC Risk Assessment documentation.**
+> **A Model Context Protocol (MCP) server for [Gemara](https://github.com/ossf/gemara) — the GRC Engineering Model for Automated Risk Assessment.**
 
 | | |
 |---|---|
@@ -118,27 +112,34 @@ Complyscribe streamlines the creation and maintenance of compliance documentatio
 | **Language** | Go |
 | **License** | Apache-2.0 |
 
-A Model Context Protocol (MCP) server that provides AI-assisted automation for authoring Governance, Risk, and Compliance (GRC) documentation.
+⚠️ **Prototype implementation.** The API, behavior, and data structures may change without notice.
 
-**Key Features:**
-- MCP protocol support for AI integrations
-- GRC documentation automation
-- Integration with Gemara tooling
+This MCP server enables AI assistants to help users create and manage Gemara artifacts through a standardized interface.
+
+**Features:**
+- **Storage & Validation** — Store and validate Layer 1-3 artifacts (Guidance, Controls, Policies)
+- **Query & Discovery** — List, search, and retrieve artifacts
+- **Scoping & Applicability** — Find artifacts applicable to policy scopes
+- **File Loading** — Load artifacts from files
+
+**Related:** [Gemara (OSSF)](https://github.com/ossf/gemara), [Model Context Protocol](https://modelcontextprotocol.io/)
 
 ---
 
 ### `gemara2oscal`
 
-> **A transpiler for converting the Gemara logic format to OSCAL.**
+> **A library for translating Gemara (GRC Engineering Model for Automated Risk Assessment) to OSCAL with support for OSCAL Compass extensions.**
 
 | | |
 |---|---|
 | **Repository** | [github.com/complytime/gemara2oscal](https://github.com/complytime/gemara2oscal) |
-| **Status** | 🟢 Active |
+| **Status** | 🟡 Incubating |
 | **Language** | Go |
 | **License** | Apache-2.0 |
 
-Converts Gemara's domain-specific logic format into OSCAL (Open Security Controls Assessment Language) documents, enabling interoperability with OSCAL-based tooling.
+⚠️ **For experimentation purposes only.**
+
+Translates Gemara artifacts to OSCAL (Open Security Controls Assessment Language) documents, with support for OSCAL Compass extensions.
 
 ---
 
@@ -148,23 +149,34 @@ Foundational libraries that power the ComplyTime ecosystem.
 
 ### `oscal-sdk-go`
 
-> **OSCAL SDK for the Go programming language.**
+> **Complements the compliance-trestle SDK by providing the core SDK functionality in Go.**
 
 | | |
 |---|---|
 | **Repository** | [github.com/complytime/oscal-sdk-go](https://github.com/complytime/oscal-sdk-go) |
-| **Status** | 🔵 Supporting |
+| **Status** | 🟡 Incubating |
 | **Language** | Go |
 | **License** | Apache-2.0 |
-| **Upstream** | Fork of [gocomply/oscal](https://github.com/gocomply/oscal) |
+| **Type** | Fork |
+| **Upstream** | [oscal-compass/oscal-sdk-go](https://github.com/oscal-compass/oscal-sdk-go) |
 
-Provides Go types, parsing, and validation for OSCAL (Open Security Controls Assessment Language) documents.
+⚠️ Currently under initial development. APIs may change incompatibly.
+
+**Supported Functionality:**
+- OSCAL Types with Basic Trestle Extensions ✓
+- OSCAL Schema Validation ✓
+- Multiple Parameters per Rule ✓
+- OSCAL to OSCAL Transformation ✓
+
+**SDK Concepts:** Extensions, Rules, Settings
+
+Leverages [`go-oscal`](https://github.com/defenseunicorns/go-oscal) for Go types.
 
 ---
 
 ### `compliance-to-policy-go`
 
-> **Compliance-to-Policy (C2P) framework in Go.**
+> **Bridges Compliance as Code (OSCAL) and Policy as Code used by Policy Validation Points (PVP).**
 
 | | |
 |---|---|
@@ -172,15 +184,27 @@ Provides Go types, parsing, and validation for OSCAL (Open Security Controls Ass
 | **Status** | 🔵 Supporting |
 | **Language** | Go |
 | **License** | Apache-2.0 |
-| **Upstream** | Fork of [oscal-compass/compliance-to-policy](https://github.com/oscal-compass/compliance-to-policy) |
+| **Type** | Fork |
+| **Upstream** | [oscal-compass/compliance-to-policy](https://github.com/oscal-compass/compliance-to-policy) (CNCF Sandbox) |
 
-Bridges the gap between compliance requirements and policy administration, enabling automated policy generation from compliance controls.
+Compliance-to-Policy (C2P) generates policies in native PVP format from OSCAL Component Definitions and produces OSCAL Assessment Results from PVP assessment results. Originally created by IBM.
+
+**CLI Commands:**
+- `oscal2policy` — Transform OSCAL to policy artifacts
+- `result2oscal` — Transform policy results to OSCAL Assessment Results
+- `oscal2posture` — Generate Compliance Posture from OSCAL
+
+**Supported Policy Engines:**
+- [Kyverno](https://kyverno.io/) (Kubernetes)
+- [Open Cluster Management Policy Framework](https://open-cluster-management.io/)
+
+**Versions:** v1 (stable), v2 on main branch (experimental, APIs may change)
 
 ---
 
 ### `compliance-to-policy-plugins`
 
-> **Plugin repository for C2P extensions.**
+> **C2P/ComplyTime plugins that are not delivered in the core repository.**
 
 | | |
 |---|---|
@@ -189,13 +213,16 @@ Bridges the gap between compliance requirements and policy administration, enabl
 | **Language** | Go |
 | **License** | Apache-2.0 |
 
-Contains plugins that extend the capabilities of the `complytime` CLI and C2P framework.
+Contains additional C2P plugins for policy engine integrations.
+
+**Available Plugins:**
+- [opa-plugin](https://github.com/complytime/compliance-to-policy-plugins/tree/main/opa-plugin) — Plugin for Open Policy Agent (OPA)
 
 ---
 
 ### `compliance-to-policy-python`
 
-> **Compliance-to-Policy (C2P) framework in Python.**
+> **Bridges Compliance as Code (OSCAL) and Policy as Code used by Policy Validation Points (PVP) — Python implementation.**
 
 | | |
 |---|---|
@@ -203,9 +230,17 @@ Contains plugins that extend the capabilities of the `complytime` CLI and C2P fr
 | **Status** | 🔵 Supporting |
 | **Language** | Python |
 | **License** | Apache-2.0 |
-| **Upstream** | Fork |
+| **Type** | Fork |
+| **Upstream** | [oscal-compass/compliance-to-policy](https://github.com/oscal-compass/compliance-to-policy) (CNCF Sandbox) |
 
-Python implementation of the C2P framework for environments preferring Python tooling.
+C2P generates policies from OSCAL Component Definitions and produces OSCAL Assessment Results from PVP results. Can be used as CLI or Python library. Originally created by IBM.
+
+**Supported Policy Engines:**
+- [Kyverno](https://kyverno.io/) (Kubernetes)
+- [Open Cluster Management Policy Framework](https://open-cluster-management.io/)
+- [Auditree](https://auditree.github.io/) (REST API-based resources)
+
+**Roadmap:** OPA/Gatekeeper, Ansible
 
 ---
 
@@ -215,7 +250,7 @@ Repositories containing compliance content, policies, and security automation.
 
 ### `complytime-policies`
 
-> **Repository for ComplyTime engineering policies expressed in Gemara.**
+> **CALM (Common Architecture Language Model) architectures, standards, and controls for the ComplyTime ecosystem.**
 
 | | |
 |---|---|
@@ -223,37 +258,52 @@ Repositories containing compliance content, policies, and security automation.
 | **Status** | 🟢 Active |
 | **License** | Apache-2.0 |
 
-Contains the reference implementation of engineering policies that demonstrate ComplyTime's capabilities.
+Demonstrates integration of [CALM](https://github.com/finos/calm-cli) architectures with Gemara compliance policies.
+
+**Contents:**
+- **CALM Architecture** — ComplyTime deployment patterns
+- **CALM Patterns** — Deployment patterns that validate required components
+- **CALM Standards** — Custom standards for node/relationship metadata and Gemara policy inclusion
+- **Control Requirements** — Gemara assessment requirements mapped to CALM control requirements
 
 ---
 
 ### `oscal-content`
 
-> **OSCAL content repository with test data for ComplyTime.**
+> **An OSCAL content repository with test data for ComplyTime.**
 
 | | |
 |---|---|
 | **Repository** | [github.com/complytime/oscal-content](https://github.com/complytime/oscal-content) |
-| **Status** | 🔵 Supporting |
-| **License** | Apache-2.0 |
+| **Status** | ⚪ Empty |
 
-Provides OSCAL-formatted content and test data used for validation and testing across ComplyTime projects.
+⚠️ This repository is currently empty (placeholder).
 
 ---
 
 ### `cac-content`
 
-> **Security automation content in SCAP, Bash, Ansible, and other formats.**
+> **Security policy content for various platforms (RHEL, Fedora, Ubuntu, Debian, SLES, etc.) in SCAP, Ansible, and Bash formats.**
 
 | | |
 |---|---|
 | **Repository** | [github.com/complytime/cac-content](https://github.com/complytime/cac-content) |
 | **Status** | 🔵 Supporting |
-| **Language** | Shell |
+| **Language** | YAML, Python, Shell |
 | **License** | Various |
-| **Upstream** | Fork of [ComplianceAsCode/content](https://github.com/ComplianceAsCode/content) |
+| **Type** | Fork |
+| **Upstream** | [ComplianceAsCode/content](https://github.com/ComplianceAsCode/content) |
 
-Provides security automation content that can be leveraged by ComplyTime for compliance validation.
+Fork of the ComplianceAsCode project (formerly SCAP Security Guide). Creates security content in multiple formats from OpenControl-inspired YAML rules.
+
+**Output Formats:**
+- **SCAP** — XCCDF, OVAL, SCAP source data streams
+- **Ansible** — Playbooks for compliance check and remediation
+- **Bash** — Scripts for machine compliance
+
+**Scan Targets:** Bare-metal, VMs, VM images, containers, container images
+
+📖 [Documentation](https://complianceascode.readthedocs.io/) | [Online Workshops](https://github.com/ComplianceAsCode/content/blob/master/docs/workshop/README.adoc)
 
 ---
 
@@ -263,21 +313,28 @@ Supporting infrastructure, distributions, and developer tooling.
 
 ### `org-infra`
 
-> **Repository for reusable workflows, shared configurations, and organizational infrastructure.**
+> **Reusable workflows, shared configurations, and templates for the ComplyTime organization.**
 
 | | |
 |---|---|
 | **Repository** | [github.com/complytime/org-infra](https://github.com/complytime/org-infra) |
 | **Status** | 🟢 Active |
+| **Language** | Python |
 | **License** | Apache-2.0 |
 
-Contains reusable GitHub Actions workflows, shared CI/CD configurations, and infrastructure-as-code for the ComplyTime organization.
+Centrally manages **pre-vetted, security-hardened CI/CD pipeline steps** for consistency across all repositories.
+
+**Contents:**
+- **Reusable Workflows** — CI checks, dependency review, vulnerability scans, Gemini AI code review
+- **Templates** — PR templates, Issue templates (bug report, feature request)
+- **Config Files** — `.golangci.yml`, `.mega-linter.yml`, `.yamllint.yml`, `ruff.toml`, `commitlint.config.js`
+- **Sync Script** — Python script integrated with Peribolos for repository consistency
 
 ---
 
 ### `.github`
 
-> **Organization-level GitHub configuration managed via Peribolos.**
+> **Applies Peribolos to manage the ComplyTime GitHub organization.**
 
 | | |
 |---|---|
@@ -285,13 +342,15 @@ Contains reusable GitHub Actions workflows, shared CI/CD configurations, and inf
 | **Status** | 🔵 Supporting |
 | **License** | Apache-2.0 |
 
-Manages organization-level GitHub settings, default community health files, and team configurations using Peribolos.
+Uses [Peribolos](https://docs.prow.k8s.io/docs/components/cli-tools/peribolos/) (from Kubernetes Prow) to manage organization members, teams, and repository settings via configuration as code.
+
+**Prerequisites:** Go, GitHub App with user access token (device flow enabled)
 
 ---
 
 ### `complytime-collector-distro`
 
-> **Distribution packages for collector releases.**
+> **Repository for beacon collector releases.**
 
 | | |
 |---|---|
@@ -299,55 +358,73 @@ Manages organization-level GitHub settings, default community health files, and 
 | **Status** | 🔵 Supporting |
 | **License** | Apache-2.0 |
 
-Contains release artifacts and distribution configurations for compliance collectors.
+Distribution repository for ComplyBeacon collector releases. Currently minimal (LICENSE only).
 
 ---
 
 ### `complytime-demos`
 
-> **Automation and examples for demonstrating ComplyTime features.**
+> **Automation and examples used to demo ComplyTime features (complyctl, complyscribe, ComplyBeacon).**
 
 | | |
 |---|---|
 | **Repository** | [github.com/complytime/complytime-demos](https://github.com/complytime/complytime-demos) |
 | **Status** | 🔵 Supporting |
-| **Language** | Jinja |
+| **Language** | Jinja, Shell |
 
-Provides demo automation, examples, and reference implementations for showcasing ComplyTime capabilities.
+Base for complyctl and complyscribe demos using Vagrant (VMs) + Ansible (configuration).
+
+**Contents:**
+- `base_vms/` — Vagrant instructions for Fedora, RHEL9 demo VMs
+- `base_ansible_env/` — Ansible playbooks, inventory, templates
+- Automated demos: `demo_complyctl_fedora.yml`, `run_complybeacon_fedora.yml`
+- `CONTENT_TRANSFORMATION.md` — Examples for trestle-bot OSCAL content generation
 
 ---
 
 ### `baseline-demo`
 
-> **A demonstration of C2P to assess a project against a compliance baseline.**
+> **Demonstrates using compliance-to-policy to automate evidence generation for [OSPS Baseline](https://baseline.openssf.org/versions/2025-02-25) controls.**
 
 | | |
 |---|---|
 | **Repository** | [github.com/complytime/baseline-demo](https://github.com/complytime/baseline-demo) |
 | **Status** | 🔵 Supporting |
+| **Language** | Rego |
 | **License** | Apache-2.0 |
 
-Demonstrates how to use Compliance-to-Policy (C2P) to assess projects against compliance baselines.
+Evaluates a GitHub Repository component using C2P + [Conforma](https://github.com/conforma) OPA plugin.
+
+**Workflows:**
+1. **Generate Policy** — Transforms Gemara Layers 2-4 → OSCAL Component Definition → OPA bundle (via c2pcli)
+2. **Create Compliance Report** — Uses `snappy` + `ec validate` → OSCAL Assessment Results + Markdown report
+
+**Contents:** `governance/` (Gemara content), `checks/opa/` (Rego policies), `policy.yaml` (Conforma config)
 
 ---
 
 ### `vagrant-boxes`
 
-> **Automation for creating Vagrant boxes.**
+> **Automation for creating Vagrant Boxes for development, testing, and demo environments.**
 
 | | |
 |---|---|
 | **Repository** | [github.com/complytime/vagrant-boxes](https://github.com/complytime/vagrant-boxes) |
 | **Status** | 🔵 Supporting |
 | **Language** | Shell |
+| **Registry** | [complytime on HashiCorp Vagrant](https://portal.cloud.hashicorp.com/vagrant/discover/complytime) |
 
-Provides Vagrant box definitions and automation for development and testing environments.
+**Supported Providers:**
+- libvirt (amd64)
+- VirtualBox (arm64)
+
+Build with `make build` (requires Vagrant + provider plugin on matching architecture).
 
 ---
 
 ### `creme-brulee`
 
-> **Template repository for new ComplyTime projects.**
+> **Bite-sized ComplyTime 🍮 — Learn to use ComplyTime organization projects and tools.**
 
 | | |
 |---|---|
@@ -355,7 +432,7 @@ Provides Vagrant box definitions and automation for development and testing envi
 | **Status** | 🔵 Supporting |
 | **License** | MIT |
 
-A template repository used to bootstrap new projects with ComplyTime's standard structure, CI/CD configurations, and documentation templates.
+A self-paced training course for Compliance Managers to learn about ComplyTime tools, OSCAL content workflows, Git flow, and Agile Authoring practices. The course takes approximately 2 hours to complete.
 
 ---
 
@@ -372,6 +449,13 @@ A template repository used to bootstrap new projects with ComplyTime's standard 
 | **License** | Apache-2.0 |
 
 Contains governance documentation, contribution guidelines, membership information, and community processes.
+
+**Communication:**
+- **Slack**: [complytime workspace](https://join.slack.com/t/complytime/shared_invite/zt-3icuo77ir-XynRgEh0S8_ycHHpNgth2A)
+- **Mailing List**: [complytime@googlegroups.com](https://groups.google.com/g/complytime)
+- **Meetings**: [Google Calendar](https://calendar.google.com/calendar/embed?src=f3702601238a1df31910d273cddf7597f4000aadbdf5338c66742eb2d2cfd408%40group.calendar.google.com&ctz=America%2FNew_York)
+
+**Docs:** CONTRIBUTING.md, CODE_OF_CONDUCT.md, GOVERNANCE.md, MEMBERSHIP.md, MAINTAINERS.md, SECURITY.md
 
 ---
 
@@ -425,14 +509,14 @@ Archived projects remain available for reference but no longer receive updates o
 │  ┌─────────────────────────────────────────────────────────────────────────┐  │
 │  │                           Core Tools                                    │  │
 │  │                                                                         │  │
-│  │  ┌────────────┐ ┌────────────┐ ┌─────────────────┐ ┌────────────────┐   │  │
-│  │  │ complytime │ │  complyctl │ │   complyscribe  │ │ gemara-mcp-srv │   │  │
-│  │  │    CLI     │ │    CLI     │ │Content Authoring│ │   AI Assist    │   │  │
-│  │  └─────┬──────┘ └─────┬──────┘ └────────┬────────┘ └───────┬────────┘   │  │
-│  │        │              │                 │                  │            │  │
-│  │        └──────────────┼─────────────────┼──────────────────┘            │  │
-│  │                       │                 │                               │  │
-│  │  ┌────────────────────┴─────────────────┴────────────────────────────┐  │  │
+│  │  ┌────────────────┐ ┌─────────────────┐ ┌────────────────┐              │  │
+│  │  │    complyctl   │ │   complyscribe  │ │ gemara-mcp-srv │              │  │
+│  │  │    Main CLI    │ │Content Authoring│ │   AI Assist    │              │  │
+│  │  └───────┬────────┘ └────────┬────────┘ └───────┬────────┘              │  │
+│  │          │                   │                  │                       │  │
+│  │          └───────────────────┼──────────────────┘                       │  │
+│  │                              │                                          │  │
+│  │  ┌───────────────────────────┴───────────────────────────────────────┐  │  │
 │  │  │                    Observability                                  │  │  │
 │  │  │  ┌──────────────────────────┐  ┌──────────────────────────────┐   │  │  │
 │  │  │  │ collector-components     │  │    collector-distro          │   │  │  │
@@ -464,7 +548,7 @@ Archived projects remain available for reference but no longer receive updates o
 │  │                       Infrastructure                                    │  │
 │  │                                                                         │  │
 │  │  ┌──────────┐ ┌─────────┐ ┌──────────────┐ ┌───────────┐ ┌───────────┐  │  │
-│  │  │ org-infra│ │ .github │ │vagrant-boxes │ │   demos   │ │  template │  │  │
+│  │  │ org-infra│ │ .github │ │vagrant-boxes │ │   demos   │ │ training  │  │  │
 │  │  └──────────┘ └─────────┘ └──────────────┘ └───────────┘ └───────────┘  │  │
 │  └─────────────────────────────────────────────────────────────────────────┘  │
 │                                                                               │
@@ -477,30 +561,35 @@ Archived projects remain available for reference but no longer receive updates o
 
 | Category | Repository | Status | Description |
 |----------|------------|--------|-------------|
-| **Core** | [complytime](https://github.com/complytime/complytime) | 🟢 Active | Main CLI for compliance workflows |
-| **Core** | [complyctl](https://github.com/complytime/complyctl) | 🟢 Active | CLI for compliance workflows |
-| **Core** | [complytime-collector-components](https://github.com/complytime/complytime-collector-components) | 🟢 Active | Policy-driven observability toolkit |
-| **Core** | [complyscribe](https://github.com/complytime/complyscribe) | 🟢 Active | Compliance content authoring |
-| **Core** | [gemara-mcp-server](https://github.com/complytime/gemara-mcp-server) | 🟡 Incubating | MCP server for GRC automation |
-| **Core** | [gemara2oscal](https://github.com/complytime/gemara2oscal) | 🟢 Active | Gemara to OSCAL transpiler |
-| **SDK** | [oscal-sdk-go](https://github.com/complytime/oscal-sdk-go) | 🔵 Supporting | OSCAL SDK for Go |
-| **SDK** | [compliance-to-policy-go](https://github.com/complytime/compliance-to-policy-go) | 🔵 Supporting | C2P framework in Go |
-| **SDK** | [compliance-to-policy-plugins](https://github.com/complytime/compliance-to-policy-plugins) | 🔵 Supporting | C2P plugins |
-| **SDK** | [compliance-to-policy-python](https://github.com/complytime/compliance-to-policy-python) | 🔵 Supporting | C2P framework in Python |
-| **Content** | [complytime-policies](https://github.com/complytime/complytime-policies) | 🟢 Active | Engineering policies |
-| **Content** | [oscal-content](https://github.com/complytime/oscal-content) | 🔵 Supporting | OSCAL test data |
-| **Content** | [cac-content](https://github.com/complytime/cac-content) | 🔵 Supporting | Security automation content |
-| **Infra** | [org-infra](https://github.com/complytime/org-infra) | 🟢 Active | Reusable workflows & configs |
+| **Core** | [complyctl](https://github.com/complytime/complyctl) | 🟢 Active | Main CLI for compliance workflows |
+| **Core** | [complytime-collector-components](https://github.com/complytime/complytime-collector-components) | 🟡 Incubating | ComplyBeacon — OTEL-based compliance evidence toolkit |
+| **Core** | [complyscribe](https://github.com/complytime/complyscribe) | 🟡 Incubating | CLI for Compliance-Trestle & OSCAL in CI/CD |
+| **Core** | [gemara-mcp-server](https://github.com/complytime/gemara-mcp-server) | 🟡 Incubating | MCP server for OSSF Gemara framework (prototype) |
+| **Core** | [gemara2oscal](https://github.com/complytime/gemara2oscal) | 🟡 Incubating | Gemara to OSCAL library (experimental) |
+| **SDK** | [oscal-sdk-go](https://github.com/complytime/oscal-sdk-go) | 🟡 Incubating | Go SDK complementing compliance-trestle (fork) |
+| **SDK** | [compliance-to-policy-go](https://github.com/complytime/compliance-to-policy-go) | 🔵 Supporting | C2P: OSCAL ↔ Policy bridge (CNCF Sandbox fork) |
+| **SDK** | [compliance-to-policy-plugins](https://github.com/complytime/compliance-to-policy-plugins) | 🔵 Supporting | C2P plugins for ComplyTime |
+| **SDK** | [compliance-to-policy-python](https://github.com/complytime/compliance-to-policy-python) | 🔵 Supporting | C2P Python: OSCAL ↔ Policy (CNCF Sandbox fork) |
+| **Content** | [complytime-policies](https://github.com/complytime/complytime-policies) | 🟢 Active | CALM architectures & Gemara controls |
+| **Content** | [oscal-content](https://github.com/complytime/oscal-content) | ⚪ Empty | Placeholder (empty repository) |
+| **Content** | [cac-content](https://github.com/complytime/cac-content) | 🔵 Supporting | ComplianceAsCode fork: SCAP/Ansible/Bash content |
+| **Infra** | [org-infra](https://github.com/complytime/org-infra) | 🟢 Active | CI/CD reusable workflows, templates, configs |
 | **Infra** | [.github](https://github.com/complytime/.github) | 🔵 Supporting | Org-level GitHub config |
-| **Infra** | [complytime-collector-distro](https://github.com/complytime/complytime-collector-distro) | 🔵 Supporting | Collector distributions |
+| **Infra** | [complytime-collector-distro](https://github.com/complytime/complytime-collector-distro) | 🔵 Supporting | Beacon collector releases |
 | **Infra** | [complytime-demos](https://github.com/complytime/complytime-demos) | 🔵 Supporting | Demo automation |
-| **Infra** | [baseline-demo](https://github.com/complytime/baseline-demo) | 🔵 Supporting | C2P baseline demo |
+| **Infra** | [baseline-demo](https://github.com/complytime/baseline-demo) | 🔵 Supporting | OSPS Baseline demo with C2P + Conforma |
 | **Infra** | [vagrant-boxes](https://github.com/complytime/vagrant-boxes) | 🔵 Supporting | Vagrant automation |
-| **Infra** | [creme-brulee](https://github.com/complytime/creme-brulee) | 🔵 Supporting | Project template |
+| **Infra** | [creme-brulee](https://github.com/complytime/creme-brulee) | 🔵 Supporting | Training course for Compliance Managers |
 | **Community** | [community](https://github.com/complytime/community) | 🟢 Active | Community docs |
 
 ---
 
 ## Getting Help
+
+- **General Questions**: Open a [discussion](https://github.com/complytime/community/discussions)
 - **Bug Reports**: File issues in the relevant project repository
 - **Security Issues**: See [SECURITY.md](./SECURITY.md)
+
+## Acknowledgements
+
+This document structure was inspired by [KServe Community](https://github.com/kserve/community), [Kubernetes SIGs](https://github.com/kubernetes/community), and other CNCF project governance models.
