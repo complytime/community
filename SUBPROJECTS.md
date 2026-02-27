@@ -17,7 +17,7 @@ This document outlines the subprojects under the ComplyTime umbrella, their stat
 
 **Description**: A command-line tool for streamlining end-to-end compliance workflows on local systems.
 
-**Status**: 🟢 Active
+**Status**: 🟡 Incubating
 **Repository**: [complytime/complyctl](https://github.com/complytime/complyctl)
 **Language**: Go | **License**: Apache-2.0
 
@@ -67,7 +67,7 @@ This document outlines the subprojects under the ComplyTime umbrella, their stat
 
 **Description**: The ComplyTime project website.
 
-**Status**: ⚪ Empty
+**Status**: 🟡 Incubating
 **Repository**: [complytime/website](https://github.com/complytime/website)
 
 ---
@@ -95,7 +95,7 @@ This document outlines the subprojects under the ComplyTime umbrella, their stat
 
 **Description**: A content API service for [Gemara](https://github.com/ossf/gemara) — the GRC Engineering Model for Automated Risk Assessment. Naming not yet finalized.
 
-**Status**: ⚪ Empty
+**Status**: 🟡 Incubating
 **Repository**: [complytime/gemara-content-service](https://github.com/complytime/gemara-content-service)
 **License**: Apache-2.0
 
@@ -108,40 +108,6 @@ This document outlines the subprojects under the ComplyTime umbrella, their stat
 **Status**: 🟡 Incubating
 **Repository**: [complytime/complytime-policies](https://github.com/complytime/complytime-policies)
 **License**: Apache-2.0
-
----
-
-### compliance-to-policy-go
-
-**Description**: Go framework for Compliance-to-Policy (C2P), bridging compliance requirements to policy enforcement.
-
-**Status**: 🔵 Supporting
-**Repository**: [complytime/compliance-to-policy-go](https://github.com/complytime/compliance-to-policy-go)
-**Language**: Go | **License**: Apache-2.0
-**Type**: Fork of [oscal-compass/compliance-to-policy-go](https://github.com/oscal-compass/compliance-to-policy-go)
-
----
-
-### compliance-to-policy-plugins
-
-**Description**: C2P plugins that integrate compliance-to-policy with ComplyTime tooling.
-
-**Status**: 🟡 Incubating
-**Repository**: [complytime/compliance-to-policy-plugins](https://github.com/complytime/compliance-to-policy-plugins)
-**Language**: Go | **License**: Apache-2.0
-
----
-
-### oscal-sdk-go
-
-**Description**: Go SDK for working with OSCAL (Open Security Controls Assessment Language) documents.
-
-**Status**: 🔵 Supporting
-**Repository**: [complytime/oscal-sdk-go](https://github.com/complytime/oscal-sdk-go)
-**Language**: Go | **License**: Apache-2.0
-**Type**: Fork of [oscal-compass/oscal-sdk-go](https://github.com/oscal-compass/oscal-sdk-go)
-
----
 
 ### gemara-mcp-server
 
