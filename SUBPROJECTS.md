@@ -109,12 +109,12 @@ This document outlines the subprojects under the ComplyTime umbrella, their stat
 **Repository**: [complytime/complytime-policies](https://github.com/complytime/complytime-policies)
 **License**: Apache-2.0
 
-### gemara-mcp-server
+### complyctl-plugins
 
-**Description**: An MCP server for automating the authoring of GRC Risk Assessment documentation in [Gemara](https://github.com/ossf/gemara).
+**Description**: Plugins repo for the complyctl.
 
-**Status**: 🟡 Incubating
-**Repository**: [complytime/gemara-mcp-server](https://github.com/complytime/gemara-mcp-server)
+**Status**: ⚪ Empty
+**Repository**: [complyctl-plugins](https://github.com/complytime/complyctl-plugins)
 **Language**: Go | **License**: Apache-2.0
 
 ---
