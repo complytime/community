@@ -52,6 +52,8 @@ cannot be accepted at all!**
 
 We have also adopted [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
 
+If you have any questions or feedback, head over to the ComplyTime Slack in [#community](https://app.slack.com/client/T09SQ7RMGNN/dms).
+
 ### Merge details for committers
 
 1. All merges into develop MUST be conducted by a squash-merge
