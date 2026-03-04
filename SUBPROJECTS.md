@@ -93,7 +93,7 @@ This document outlines the subprojects under the ComplyTime umbrella, their stat
 
 ### gemara-content-service
 
-**Description**: A content API service for [Gemara](https://github.com/ossf/gemara) — the GRC Engineering Model for Automated Risk Assessment. Naming not yet finalized.
+**Description**: An OCI-compliant content delivery and enrichment service for [Gemara](https://github.com/ossf/gemara) compliance artifacts. 
 
 **Status**: 🟡 Incubating
 **Repository**: [complytime/gemara-content-service](https://github.com/complytime/gemara-content-service)
