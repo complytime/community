@@ -10,7 +10,7 @@ The following is a set of guidelines for contributing. These are just guidelines
 
 This project adheres to a [Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
-Please report unacceptable behavior to one of the Code of Conduct [Committee members](./MAINTAINERS.md).
+Please report unacceptable behavior to one of the Code of Conduct [Committee members](./MAINTAINERS.md) or reach out in the [#community](https://complytime.slack.com/archives/C0ABAU1QNFR) Slack channel.
 
 ### Related repositories
 
@@ -44,7 +44,7 @@ To contribute code or documentation, please submit a **pull request** to respect
 
 A good way to familiarize yourself with the codebase and contribution process is
 to look for and tackle low-hanging fruit in the **issues** of respective repositories.
-Before embarking on a more ambitious contribution, please quickly [get in touch](MAINTAINERS.md) with us.
+Before embarking on a more ambitious contribution, please quickly [get in touch](https://complytime.slack.com/archives/C0ABAU1QNFR) with us.
 
 **Note: We appreciate your effort, and want to avoid a situation where a contribution
 requires extensive rework (by you or by us), sits in backlog for a long time, or
@@ -52,7 +52,7 @@ cannot be accepted at all!**
 
 We have also adopted [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
 
-If you have any questions or feedback, head over to the ComplyTime Slack in [#community](https://app.slack.com/client/T09SQ7RMGNN/dms).
+If you have any questions or feedback, head over to the ComplyTime Slack in [#community](https://complytime.slack.com/archives/C0ABAU1QNFR).
 
 ### Merge details for committers
 
