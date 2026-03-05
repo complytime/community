@@ -1,33 +1,154 @@
-# SubProjects: ComplyTime
+# ComplyTime Subprojects
 
-## `complyctl`
+This document outlines the subprojects under the ComplyTime umbrella, their status, and contribution guidelines. Each subproject has its own maintainers, roadmap, and contribution guidelines while adhering to the overall ComplyTime [governance](./GOVERNANCE.md) and [code of conduct](./CODE_OF_CONDUCT.md).
 
-A command-line tool for streamlining end-to-end compliance workflows on local systems.
+## Subproject Maturity Levels
 
-### In Scope Repositories
+| Status | Description |
+|--------|-------------|
+| **🟢 Active** | Production-ready, actively maintained with regular releases |
+| **🟡 Incubating** | Under active development, working toward stability |
+| **🔵 Supporting** | Foundational/utility project, stable but lower release cadence |
+| **⚪ Archived Or Empty** | Empty or no longer actively maintained, kept for historical reference |
 
-| Name                           | Function           |
-|--------------------------------|--------------------|
-| `complyctl`                    | The main CLI repo  |
-| `compliance-to-policy-plugins` | Plugins repository |
+## Current Subprojects
 
+### complyctl
 
-## `complyscribe`
+**Description**: A command-line tool for streamlining end-to-end compliance workflows on local systems.
 
-A workflow automation tool for compliance content authoring
+**Status**: 🟡 Incubating
+**Repository**: [complytime/complyctl](https://github.com/complytime/complyctl)
+**Language**: Go | **License**: Apache-2.0
 
-## In Scope Repositories
+---
 
-| Name           | Function      |
-|----------------|---------------|
-| `complyscribe` | The main repo |
+### complyscribe
 
-## `complybeacon`
+**Description**: A workflow automation tool for compliance content authoring.
 
-A policy-driven observability toolkit for compliance evidence collection
+**Status**: 🟡 Incubating
+**Repository**: [complytime/complyscribe](https://github.com/complytime/complyscribe)
+**Language**: Python | **License**: Apache-2.0
 
-## In Scope Repositories
+---
 
-| Name           | Function      |
-|----------------|---------------|
-| `complybeacon` | The main repo |
+### complytime-collector-components (ComplyBeacon)
+
+**Description**: A policy-driven observability toolkit for compliance evidence collection, extending the OpenTelemetry standard.
+
+**Status**: 🟡 Incubating
+**Repository**: [complytime/complytime-collector-components](https://github.com/complytime/complytime-collector-components)
+**Language**: Go | **License**: Apache-2.0
+
+---
+
+### complytime-collector-distro
+
+**Description**: Pre-built OpenTelemetry Collector distribution for ComplyBeacon releases.
+
+**Status**: ⚪ Empty
+**Repository**: [complytime/complytime-collector-distro](https://github.com/complytime/complytime-collector-distro)
+**License**: Apache-2.0
+
+---
+
+### org-infra
+
+**Description**: Reusable workflows, shared configurations, and templates for the ComplyTime organization.
+
+**Status**: 🟢 Active
+**Repository**: [complytime/org-infra](https://github.com/complytime/org-infra)
+**Language**: Python | **License**: Apache-2.0
+
+---
+
+### website
+
+**Description**: The ComplyTime project website.
+
+**Status**: 🟡 Incubating
+**Repository**: [complytime/website](https://github.com/complytime/website)
+
+---
+
+### .github
+
+**Description**: Organization management via [Peribolos](https://docs.prow.k8s.io/docs/components/cli-tools/peribolos/).
+
+**Status**: 🔵 Supporting
+**Repository**: [complytime/.github](https://github.com/complytime/.github)
+
+---
+
+### community
+
+**Description**: Community documentation including contributing guidelines, governance, and code of conduct.
+
+**Status**: 🔵 Supporting
+**Repository**: [complytime/community](https://github.com/complytime/community)
+**License**: Apache-2.0
+
+---
+
+### gemara-content-service
+
+**Description**: An OCI-compliant content delivery and enrichment service for [Gemara](https://github.com/ossf/gemara) compliance artifacts. 
+
+**Status**: 🟡 Incubating
+**Repository**: [complytime/gemara-content-service](https://github.com/complytime/gemara-content-service)
+**License**: Apache-2.0
+
+---
+
+### complytime-policies
+
+**Description**: Engineering policies expressed in [Gemara](https://github.com/ossf/gemara) for the ComplyTime project.
+
+**Status**: 🟡 Incubating
+**Repository**: [complytime/complytime-policies](https://github.com/complytime/complytime-policies)
+**License**: Apache-2.0
+
+### complyctl-plugins
+
+**Description**: Plugins repo for the complyctl.
+
+**Status**: ⚪ Empty
+**Repository**: [complyctl-plugins](https://github.com/complytime/complyctl-plugins)
+**Language**: Go | **License**: Apache-2.0
+
+---
+
+## Process for Adding New Subprojects
+
+1. **Open a Proposal Issue** in the [community repository](https://github.com/complytime/community/issues) with:
+   - Project name and description
+   - Problem statement and goals
+   - Proposed maintainers (minimum 2)
+   - Technical architecture overview
+   - Alignment with ComplyTime's mission
+
+2. **Community Review**: The proposal will be open for community discussion for at least 2 weeks.
+
+3. **TOC Approval**: The [Technical Oversight Committee](./GOVERNANCE.md) will vote on the proposal.
+
+## Subproject Requirements
+
+All subprojects must:
+
+- Follow the ComplyTime [Code of Conduct](./CODE_OF_CONDUCT.md)
+- Adhere to the [Contributing Guidelines](./CONTRIBUTING.md)
+- Have at least two maintainers
+- Maintain clear documentation
+- Follow ComplyTime's licensing guidelines (Apache-2.0 preferred)
+
+## Process for Archiving Subprojects
+
+Subprojects may be archived when:
+
+- No active maintainers remain after reasonable recruitment efforts
+- The project no longer aligns with ComplyTime's direction
+- The project has been superseded by another solution
+- A supermajority vote of the TOC approves archival
+
+Archived projects remain available for reference but no longer receive updates or support.

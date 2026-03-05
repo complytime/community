@@ -10,16 +10,20 @@ The following is a set of guidelines for contributing. These are just guidelines
 
 This project adheres to a [Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
-Please report unacceptable behavior to one of the Code of Conduct [Committee members](./MAINTAINERS.md).
+Please report unacceptable behavior to one of the Code of Conduct [Committee members](./MAINTAINERS.md) or reach out in the [#community](https://complytime.slack.com/archives/C0ABAU1QNFR) Slack channel.
 
 ### Related repositories
 
 In addition to this repository, ComplyTime has several sub-projects:
 
-* **complyctl**: A command-line tool for interacting with ComplyTime services.
-* **complybeacon**: A service for continuous compliance monitoring.
-* **complyscribe**: A service for generating compliance documentation.
-* **cac-transpiler**: A tool for transpiling compliance-as-code artifacts.
+* **[complyctl](https://github.com/complytime/complyctl)**: A command-line tool for streamlining end-to-end compliance workflows on local systems.
+* **[complyscribe](https://github.com/complytime/complyscribe)**: A workflow automation tool for compliance content authoring.
+* **[complytime-collector-components](https://github.com/complytime/complytime-collector-components)** (ComplyBeacon): A policy-driven observability toolkit for compliance evidence collection, extending the OpenTelemetry standard.
+* **[complytime-policies](https://github.com/complytime/complytime-policies)**: Engineering policies expressed in [Gemara](https://github.com/ossf/gemara) for the ComplyTime project.
+* **[gemara-mcp-server](https://github.com/complytime/gemara-mcp-server)**: An MCP server for automating the authoring of GRC Risk Assessment documentation in Gemara.
+* **[website](https://github.com/complytime/website)**: The ComplyTime project website.
+
+For a complete list of all subprojects and their current status, see [SUBPROJECTS.md](./SUBPROJECTS.md).
 
 The following sections provide a general overview for contributing to any of the ComplyTime repositories.
 
@@ -40,13 +44,15 @@ To contribute code or documentation, please submit a **pull request** to respect
 
 A good way to familiarize yourself with the codebase and contribution process is
 to look for and tackle low-hanging fruit in the **issues** of respective repositories.
-Before embarking on a more ambitious contribution, please quickly [get in touch](MAINTAINERS.md) with us.
+Before embarking on a more ambitious contribution, please quickly [get in touch](https://complytime.slack.com/archives/C0ABAU1QNFR) with us.
 
 **Note: We appreciate your effort, and want to avoid a situation where a contribution
 requires extensive rework (by you or by us), sits in backlog for a long time, or
 cannot be accepted at all!**
 
 We have also adopted [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
+
+If you have any questions or feedback, head over to the ComplyTime Slack in [#community](https://complytime.slack.com/archives/C0ABAU1QNFR).
 
 ### Merge details for committers
 
