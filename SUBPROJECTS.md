@@ -25,9 +25,9 @@ This document outlines the subprojects under the ComplyTime umbrella, their stat
 
 ### complyscribe
 
-**Description**: A workflow automation tool for compliance content authoring.
+**Description**: A workflow automation tool for compliance content authoring. Archived after complyctl was redesigned to use Gemara, removing the need for OSCAL as input.
 
-**Status**: 🟡 Incubating
+**Status**: ⚪ Archived
 **Repository**: [complytime/complyscribe](https://github.com/complytime/complyscribe)
 **Language**: Python | **License**: Apache-2.0
 
