@@ -17,7 +17,7 @@ Please report unacceptable behavior to one of the Code of Conduct [Committee mem
 In addition to this repository, ComplyTime has several sub-projects:
 
 * **[complyctl](https://github.com/complytime/complyctl)**: A command-line tool for streamlining end-to-end compliance workflows on local systems.
-* **[complyscribe](https://github.com/complytime/complyscribe)**: A workflow automation tool for compliance content authoring.
+* **[complyscribe](https://github.com/complytime/complyscribe)** *(archived)*: A workflow automation tool for compliance content authoring.
 * **[complytime-collector-components](https://github.com/complytime/complytime-collector-components)** (ComplyBeacon): A policy-driven observability toolkit for compliance evidence collection, extending the OpenTelemetry standard.
 * **[complytime-policies](https://github.com/complytime/complytime-policies)**: Engineering policies expressed in [Gemara](https://github.com/ossf/gemara) for the ComplyTime project.
 * **[gemara-mcp-server](https://github.com/complytime/gemara-mcp-server)**: An MCP server for automating the authoring of GRC Risk Assessment documentation in Gemara.
