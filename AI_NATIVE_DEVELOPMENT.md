@@ -243,3 +243,6 @@ a better practice, the improvement is captured in the appropriate location:
 | Sync AI tooling | org-infra `sync-config.yml` manages distribution |
 | Scaffold a new repo | `uf init --divisor --lang <lang>` |
 | Propose governance changes | PR to org-infra `constitution.md` |
+
+> **Note**: Command names shown above reflect the current tooling. Per-repo
+> `docs/AI.md` is the canonical source for up-to-date command references.
