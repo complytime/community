@@ -93,10 +93,10 @@ This document outlines the subprojects under the ComplyTime umbrella, their stat
 
 ### gemara-content-service
 
-**Description**: An OCI-compliant content delivery and enrichment service for [Gemara](https://github.com/ossf/gemara) compliance artifacts. 
+**Description**: An OCI-compliant content delivery and enrichment service for [Gemara](https://github.com/ossf/gemara) compliance artifacts. Moved to complytime-labs and archived after the enrichment approach was explored and determined not necessary.
 
-**Status**: 🟡 Incubating
-**Repository**: [complytime/gemara-content-service](https://github.com/complytime/gemara-content-service)
+**Status**: ⚪ Archived
+**Repository**: [complytime-labs/gemara-content-service](https://github.com/complytime-labs/gemara-content-service)
 **License**: Apache-2.0
 
 ---
