@@ -165,6 +165,69 @@ All commit messages MUST follow the **Conventional Commits**
   `Assisted-by: OpenCode (claude-opus-4-6)`). This ensures transparency and
   traceability of AI-assisted contributions.
 
+### Issues
+
+Issues created by the development team MUST be categorized with one of these
+standard labels:
+
+- **`bug`**: Expected behavior is broken, or the code throws unexpected errors.
+  This label is for fixing broken functionality, not for proposing alternative
+  approaches to something that already works.
+- **`documentation`**: Changes strictly related to READMEs, wikis, inline docs, or
+  other documentation. Missing, outdated, or imperfect documentation MUST NOT be
+  treated as a code bug and MUST NOT be used to block merging a code PR.
+  Documentation gaps SHOULD be tracked as dedicated issues or tasks.
+- **`enhancement`**: New features, optimizations, or improvements to existing
+  functionality.
+
+If work does not fit these three categories, contributors MAY use a more specific
+label aligned with org conventions (for example, `Clean up` or `Security`).
+
+When relevant, issues SHOULD also include:
+
+- **`ai_assisted`**: The issue, bug report, or feature description was drafted,
+  structured, or heavily assisted by an AI/LLM tool. Reviewers SHOULD verify the
+  logical reasoning behind the ticket framing.
+- **`stakeholder`**: Product stakeholders have formally reviewed the request,
+  confirmed the business need, and verified it as a high-priority item.
+
+### Descriptions and Impact
+
+Issue and PR descriptions MUST be concise and easy to scan. Prefer short
+paragraphs, clear headings, and bullet points over long prose. Descriptions MUST
+still provide enough context for reviewers to understand the change.
+
+Issues SHOULD include realistic user or stakeholder impact: who is affected, how
+the problem shows up today, and how the proposed change improves outcomes. This
+speeds prioritization and reduces clarification cycles.
+
+### Review Etiquette
+
+PR feedback MUST focus on functionality, security, performance, test coverage, and
+architectural alignment.
+
+- Data-driven findings (broken behavior, missing tests, security issues, measurable
+  regressions) MUST be reported and SHOULD be addressed by the author.
+- Preference-based suggestions with no negative technical impact SHOULD be avoided.
+  If posted, the PR author MAY accept or decline them.
+- Reviewers SHOULD lead with curiosity, not judgment. When a design choice is
+  unclear, ask for clarification rather than assuming it is incorrect.
+
+### Fast-Track Small Fixes
+
+For simple bugs or improvements that can be fixed in a couple of hours or less,
+contributors SHOULD open a PR directly with the fix instead of creating a tracking
+issue first. The PR description MUST still explain the problem and the fix.
+
+### AI-Assisted Submissions
+
+Any code, tests, documentation, or issue content produced with AI assistance MUST
+be validated by the author before opening a PR or issue. Authors SHOULD provide
+supporting evidence when applicable (reproducible steps, logs, permalinks to code,
+screenshots, or short recordings). The author retains full ownership and
+responsibility for the submission and MUST ensure it meets project quality and
+logic standards. See also [AI_NATIVE_DEVELOPMENT.md](./AI_NATIVE_DEVELOPMENT.md).
+
 ---
 
 ## 4. Infrastructure Standards Centralization
@@ -273,6 +336,7 @@ ComplyTime follows an AI-native development workflow. For the full standard, see
 
 Key points:
 - All AI-assisted commits MUST include the `Assisted-by` trailer
+- AI-assisted issues and PRs MUST be validated by the author before submission
 - Agent choice is personal; committed files ensure consistent outcomes
 - Convention packs encode coding rules that agents enforce
 - The review council provides automated multi-perspective review on every PR
