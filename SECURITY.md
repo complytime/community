@@ -16,7 +16,7 @@ To report a vulnerability, either:
     - Detail the issue, see below for some examples of info that might be
       useful including.
 
-2. Send an email to `complytime-security@example.com` detailing the issue and impacted project(s).
+2. Send an email to `complytime-security@redhat.com` detailing the issue and impacted project(s).
 
 ### What to include
 
