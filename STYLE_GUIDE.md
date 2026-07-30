@@ -176,7 +176,7 @@ standard labels:
 - **`documentation`**: Changes strictly related to READMEs, wikis, inline docs, or
   other documentation. Missing, outdated, or imperfect documentation MUST NOT be
   treated as a code bug and MUST NOT be used to block merging a code PR.
-  Documentation gaps SHOULD be tracked as dedicated issues or tasks.
+  Documentation gaps unrelated to the code PR scope SHOULD be tracked as dedicated issues or tasks.
 - **`enhancement`**: New features, optimizations, or improvements to existing
   functionality.
 
