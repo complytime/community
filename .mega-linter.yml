@@ -1,6 +1,12 @@
 # https://megalinter.io/latest/supported-linters/
+# .opencode and .claude contain AI agent/skill definitions with intentional
+# formatting patterns that conflict with markdownlint and yamllint rules.
+# Other scanners (grype, Trivy, OSV-Scanner, REPOSITORY_BETTERLEAKS) still
+# cover these paths -- only MegaLinter's style linters are excluded.
 ADDITIONAL_EXCLUDED_DIRECTORIES:
   - vendor
+  - .opencode
+  - .claude
 MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: "(vendor/)"
 PROTOBUF_PROTOLINT_FILTER_REGEX_EXCLUDE: "(vendor/)"
 ENABLE_LINTERS:
